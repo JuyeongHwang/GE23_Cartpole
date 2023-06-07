@@ -49,6 +49,9 @@ void AMyNetworkServer::Tick(float DeltaTime)
 
 	for (int _id = 0; _id < apoles.Num(); _id++) {
 		
+
+		ManageConnection();
+
 		if (Input_[_id] == "10") {
 			rPoles[_id]->Reset_myEnv(_id);
 		}
@@ -60,7 +63,7 @@ void AMyNetworkServer::Tick(float DeltaTime)
 			rPoles[_id]->ApplySpeed(DeltaTime);
 		}
 
-		ManageConnection();
+
 
 		if (Input_[_id] != "10" && AppliedInput[_id]) {
 			AppliedInput[_id] = false;

@@ -56,7 +56,7 @@ class custom_env(gym.Env):
             if not data:
                 break
             data = data.decode('utf-8')
-            #print(data)
+            # print(data)
 
             # state = int.from_bytes(data, byteorder='big', signed=True)
             break

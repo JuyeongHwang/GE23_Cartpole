@@ -31,7 +31,7 @@ def main():
     for r in range(ENVCOUNT):
         state = multi_env.reset(r)
         states.append(state)
-        # print(f"id: {r}, state: {state}")
+        print(f"id: {r}, state: {state}")
 
     for count in range(100000):
         #print(states)
@@ -49,6 +49,8 @@ def main():
         # print(len(states), " ", len(actions), " ", len(rewards), " ", len(n_states), " ", len(probs), " ", len(dones))
         for i in range(ENVCOUNT):
             personalCount[i] += 1
+            transition = (states[i], actions[i], rewards[i], n_states[i], probs[i], dones[i])
+            print(transition)
             model.put_data((states[i], actions[i], rewards[i], n_states[i], probs[i], dones[i]))
             if(dones[i] or personalCount[i] > 500):
                 if(i==0):
